@@ -1,26 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Feed from "../Routes/Feed";
 import Auth from "../Routes/Auth";
 
 const LoggedInRoutes = () => (
-  <>
+  <Switch>
     <Route exact path="/" component={Feed} />
-  </>
+  </Switch>
 );
 
 const LoggedOutRoutes = () => (
-  <>
+  <Switch>
     <Route exact path="/" component={Auth} />
-  </>
+  </Switch>
 );
 
-const AppRouter = ({ isLoggedIn }) => (
-  <Router>
-    <Switch>{isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />}</Switch>
-  </Router>
-);
+const AppRouter = ({ isLoggedIn }) =>
+  isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />;
 
 AppRouter.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired
