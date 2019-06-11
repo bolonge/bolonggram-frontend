@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AuthPresenter from "./AuthPresenter";
-import useInput from "../../Hooks/userInput";
+import useInput from "../../Hooks/useInput";
 import { useMutation } from "react-apollo-hooks";
 import {
   LOG_IN,
@@ -91,7 +91,7 @@ export default () => {
           } = await confirmSecretMutation();
           if (token !== "" || token !== undefined) {
             localLogInMutation({ variables: { token } });
-          }else{
+          } else {
             throw Error();
           }
         } catch {
