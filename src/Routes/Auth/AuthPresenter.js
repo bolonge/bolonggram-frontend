@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
 
@@ -60,25 +61,40 @@ export default ({
   <Wrapper>
     <Form>
       {action === "logIn" && (
-        <form onSubmit={onSubmit}>
-          <Input placeholder={"Email"} {...email} type={email} />
-          <Button text={"Log in"} />
-        </form>
+        <>
+          <Helmet>
+            <title>Log In | Bolonggram</title>
+          </Helmet>
+          <form onSubmit={onSubmit}>
+            <Input placeholder={"Email"} {...email} type={email} />
+            <Button text={"Log in"} />
+          </form>
+        </>
       )}
       {action === "signUp" && (
-        <form onSubmit={onSubmit}>
-          <Input placeholder={"First name"} {...firstName} />
-          <Input placeholder={"Last name"} {...lastName} />
-          <Input placeholder={"Email"} {...email} type={email} />
-          <Input placeholder={"User name"} {...userName} />
-          <Button text={"Sign Up"} />
-        </form>
+        <>
+          <Helmet>
+            <title>Sign Up | Bolonggram</title>
+          </Helmet>
+          <form onSubmit={onSubmit}>
+            <Input placeholder={"First name"} {...firstName} />
+            <Input placeholder={"Last name"} {...lastName} />
+            <Input placeholder={"Email"} {...email} type={email} />
+            <Input placeholder={"User name"} {...userName} />
+            <Button text={"Sign Up"} />
+          </form>
+        </>
       )}
       {action === "confirm" && (
-        <form onSubmit={onSubmit}>
-          <Input placeholder={"Confirm"} required {...secret} />
-          <Button text={"Confirm"} />
-        </form>
+        <>
+          <Helmet>
+            <title>Confirm | Bolonggram</title>
+          </Helmet>
+          <form onSubmit={onSubmit}>
+            <Input placeholder={"Confirm"} required {...secret} />
+            <Button text={"Confirm"} />
+          </form>
+        </>
       )}
     </Form>
     {action !== "confirm" && (
