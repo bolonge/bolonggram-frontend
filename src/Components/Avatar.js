@@ -25,7 +25,7 @@ const Container = styled.div`
 const Avatar = ({ size = "sm", url }) => <Container size={size} url={url} />;
 
 Avatar.propTypes = {
-  size: PropTypes.oneOf("sm", "md", "lg"),
+  size: PropTypes.oneOf(["sm", "md", "lg"]),
   url: PropTypes.string.isRequired
 };
 
