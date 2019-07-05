@@ -14,7 +14,7 @@ const Section = styled.div`
   margin-bottom: 20px;
   display: grid;
   grid-gap: 25px;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(4, 160px);
   grid-template-rows: 160px;
   grid-auto-rows: 160px;
 `;
@@ -46,6 +46,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
                 isFollowing={user.isFollowing}
                 url={user.avatar}
                 isSelf={user.isSelf}
+                id={user.id}
               />
             ))
           )}
